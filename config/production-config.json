@@ -1,5 +1,13 @@
 {
   "env": "production",
   "port": 3000,
-  "staticPath": "build/public/"
+  "staticPath": "build/public/",
+  "apikey": {
+    "moviedb": "XX-ENV-VAR-XX"
+  },
+  "url": {
+    "moviedb": {
+      "domain": "https://api.themoviedb.org"
+    }
+  }
 }
