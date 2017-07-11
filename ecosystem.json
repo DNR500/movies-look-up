@@ -1,0 +1,7 @@
+{
+  "apps" : [{
+    "name"        : "movies-look-up-node-service",
+    "script"      : "build/node/server.js",
+    "max_memory_restart" : "150M"
+  }]
+}

@@ -1,0 +1,21 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "es6": true,
+    "node": true,
+    "mocha": true,
+    "browser": true
+  },
+  "extends": "airbnb",
+  "rules": {
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+    "no-console": ["error", { "allow": ["info", "warn", "error"] }],
+    "no-param-reassign": ["error", { "props": false }],
+    "no-unused-expressions": 0,
+    "react/forbid-prop-types": 0
+  },
+  "globals": {
+    "casper": true,
+    "expect": true
+  }
+}
