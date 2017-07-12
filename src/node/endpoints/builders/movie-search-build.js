@@ -20,7 +20,7 @@ const formatResult = (result) => {
 
 const movieSearchBuild = (searchResults) => {
   const { page, total_results, total_pages, results } = searchResults[0];
-
+  
   return {
     page,
     total_results,

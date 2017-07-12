@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import './polyfills/location.origin';
+
+import MovieSearch from './containers/movie-search';
+
 export default function init() {
   ReactDOM.render(
     (
-      <p>Hi there</p>
+      <MovieSearch />
     ),
     document.getElementById('main'));
 }

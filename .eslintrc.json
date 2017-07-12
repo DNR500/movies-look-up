@@ -12,7 +12,8 @@
     "no-console": ["error", { "allow": ["info", "warn", "error"] }],
     "no-param-reassign": ["error", { "props": false }],
     "no-unused-expressions": 0,
-    "react/forbid-prop-types": 0
+    "react/forbid-prop-types": 0,
+    "camelcase": 0
   },
   "globals": {
     "casper": true,
