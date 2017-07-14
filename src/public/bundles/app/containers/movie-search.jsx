@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBox from './../components/search-box';
 import MoviePagerList from './../components/movie-pager-list';
 import MovieDetails from './../components/movie-details';
-import movieSearchRequest from './../network/movieSearchRequest';
 import scrollToTop from './../utils/scroll-to-top';
 
 class MovieSearch extends React.Component {
@@ -11,35 +11,18 @@ class MovieSearch extends React.Component {
     this.state = {
       searchQuery: '',
       searchResults: {},
-      movieId: NaN,
+      movieData: {},
     };
-
-    this.searchForMovie = this.searchForMovie.bind(this);
-    this.setSearchResults = this.setSearchResults.bind(this);
-    this.onRequestPage = this.onRequestPage.bind(this);
-    this.onItemSelected = this.onItemSelected.bind(this);
   }
 
-  onItemSelected(movieId) {
-    this.setState({
-      movieId,
-    });
+  onItemSelected = (movieId) => {
+    const { movieDetailRequest } = this.props;
+    movieDetailRequest(movieId)
+      .then(this.setMovieData);
   }
 
-  onRequestPage(newPage) {
-    const { searchQuery } = this.state;
-    movieSearchRequest(searchQuery, newPage)
-      .then(this.setSearchResults);
-  }
-
-  setSearchResults(searchResults) {
-    this.setState({
-      searchResults,
-    });
-    scrollToTop();
-  }
-
-  searchForMovie(searchQuery) {
+  onSearchForMovie = (searchQuery) => {
+    const { movieSearchRequest } = this.props;
     this.setState({
       searchQuery,
     });
@@ -47,21 +30,55 @@ class MovieSearch extends React.Component {
       .then(this.setSearchResults);
   }
 
+  onRequestPage = (newPage) => {
+    const { movieSearchRequest } = this.props;
+    const { searchQuery } = this.state;
+    movieSearchRequest(searchQuery, newPage)
+      .then(this.setSearchResults);
+  }
+
+  onCloseDetails = () => {
+    this.setState({
+      movieData: {},
+    });
+  }
+
+  setSearchResults = (searchResults) => {
+    this.setState({
+      searchResults,
+    });
+    scrollToTop();
+  }
+
+  setMovieData = (movieData) => {
+    this.setState({
+      movieData,
+    });
+  }
+
   render() {
-    const { searchResults, movieId } = this.state;
+    const { searchResults, movieData } = this.state;
 
     return (
       <div id="MovieSearch">
-        <SearchBox searchForMovie={this.searchForMovie} />
+        <SearchBox searchForMovie={this.onSearchForMovie} />
         <MoviePagerList
           searchResults={searchResults}
           onItemSelected={this.onItemSelected}
           onRequestPage={this.onRequestPage}
         />
-        <MovieDetails movieId={movieId} />
+        <MovieDetails
+          movieData={movieData}
+          onCloseDetails={this.onCloseDetails}
+        />
       </div>
     );
   }
 }
+
+MovieSearch.propTypes = {
+  movieSearchRequest: PropTypes.func.isRequired,
+  movieDetailRequest: PropTypes.func.isRequired,
+};
 
 export default MovieSearch;

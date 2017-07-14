@@ -14,14 +14,14 @@ const MoviePager = ({ currentPage, totalPages, requestPage }) => {
       {
         (currentPage > 1) &&
         <button type="button" className="movie-pager__prev-button" onClick={onClickPrevPage}>
-          <span className="glyphicon glyphicon-chevron-left" />
+          <span className="glyphicon glyphicon-circle-arrow-left" />
         </button>
       }
       <span className="movie-pager__page-indicator">{`${currentPage}/${totalPages}`}</span>
       {
         (currentPage < totalPages) &&
         <button type="button" className="movie-pager__next-button" onClick={onClickNextPage}>
-          <span className="glyphicon glyphicon-chevron-right" />
+          <span className="glyphicon glyphicon-circle-arrow-right" />
         </button>
       }
     </div>
