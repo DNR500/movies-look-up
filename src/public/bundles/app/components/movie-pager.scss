@@ -1,0 +1,32 @@
+.movie-pager {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  &__prev-button, &__next-button {
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 1.8em;
+    color: $color-accent-blue-light;
+    outline: none;
+    position: absolute;
+    &:link, &_:visited {
+      color: $color-accent-blue-light;
+    }
+    &:focus, &:hover {
+      color: $color-1;
+    }
+    &:active {
+      color: $color-accent-blue-light;
+    }
+  }
+  &__next-button {
+    right: 0;
+  }
+  &__prev-button {
+    left: 0;
+  }
+  &__page-indicator {
+    line-height: 2.5em;
+  }
+}

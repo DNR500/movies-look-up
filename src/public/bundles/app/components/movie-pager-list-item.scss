@@ -1,0 +1,61 @@
+.movie-pager-list {
+  max-width: 800px;
+  margin: auto;
+  &__item {
+    padding: 0;
+    margin: 0 0 5px 0;
+  }
+  &__button {
+    position: relative;
+    padding: 8px;
+    margin: 0;
+    display: flex;
+    background-color: transparent;
+    border: 1px solid $color-4;
+    outline: none;
+    &:link, &:visited {
+      border: 1px solid $color-4;
+    }
+    &:focus, &:hover {
+      border-color: $color-accent-blue-light;
+    }
+    &:active {
+      border: 1px solid $color-4;
+    }
+  }
+  &__image {}
+  &__text-container {
+    text-align: left;
+    padding: 0 1.5em;
+  }
+  &__title {
+    margin: 0.3em 0;
+    padding: 0;
+    font-size: 1.7em;
+  }
+  &__overview {
+    display: block;
+  }
+  &__release-date, &__language {
+    font-weight: 300;
+    font-style: italic;
+    display: inline-block;
+    margin-top: 0.5em;
+    @media (max-width: 500px) {
+      display: block;
+    }
+  }
+  &__language {
+    display: block;
+    margin-top: 0;
+  }
+}
+
+
+
+
+
+
+
+
+

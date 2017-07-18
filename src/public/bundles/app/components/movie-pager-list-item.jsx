@@ -27,8 +27,14 @@ const MoviePagerListItem = ({ movieData, onItemSelected }) => {
         <div className="movie-pager-list__text-container">
           { title && <h2 className="movie-pager-list__title">{title}</h2> }
           { overview && <span className="movie-pager-list__overview">{overview}</span> }
-          { release_date && <span className="movie-pager-list__release-date">{release_date}</span> }
-          { original_language && <span className="movie-pager-list__language">{original_language}</span> }
+          { release_date &&
+            <span className="movie-pager-list__release-date">
+              {`Release date: ${release_date}`}
+            </span> }
+          { original_language &&
+            <span className="movie-pager-list__language">
+              {`Original language: ${original_language}`}
+            </span> }
         </div>
       </button>
     </li>

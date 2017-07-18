@@ -17,7 +17,7 @@ const MoviePagerList = ({ searchResults, onItemSelected, onRequestPage }) => {
                 totalPages={total_pages}
                 requestPage={onRequestPage}
               />
-              <ul>
+              <ul className="movie-pager-list__ul" >
                 {
                   results.map(movie =>
                     <MoviePagerListItem

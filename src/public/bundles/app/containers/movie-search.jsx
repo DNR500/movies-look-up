@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import SearchBox from './../components/search-box';
 import MoviePagerList from './../components/movie-pager-list';
 import MovieDetails from './../components/movie-details';
@@ -58,9 +59,12 @@ class MovieSearch extends React.Component {
 
   render() {
     const { searchResults, movieData } = this.state;
+    const movieSearchClass = classNames({
+      'movie-search--no-scroll': !!movieData.id,
+    });
 
     return (
-      <div id="MovieSearch">
+      <div id="MovieSearch" className={movieSearchClass}>
         <SearchBox searchForMovie={this.onSearchForMovie} />
         <MoviePagerList
           searchResults={searchResults}

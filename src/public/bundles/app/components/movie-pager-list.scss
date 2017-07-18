@@ -1,0 +1,14 @@
+.movie-pager-list {
+  text-align: center;
+  padding: 1em 0;
+  &__total-results {
+    font-weight: 900;
+    padding-bottom: 1em;
+    display: block;
+  }
+  &__ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
