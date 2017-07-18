@@ -1,3 +1,7 @@
+import limitWordCount from './../../../universal/utils/string/limit-word-count';
+import formatDate from './../../../universal/utils/date/format-date';
+import localToLanguage from './../../../universal/utils/locale/locale-to-language';
+
 const formatResult = (result) => {
   const {
     id,
@@ -12,9 +16,9 @@ const formatResult = (result) => {
     id,
     title,
     poster_path,
-    original_language,
-    overview,
-    release_date,
+    original_language: localToLanguage(original_language),
+    overview: limitWordCount(overview, 40),
+    release_date: formatDate(release_date),
   };
 };
 
