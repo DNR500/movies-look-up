@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import SearchBox from './../components/search-box';
 import MoviePagerList from './../components/movie-pager-list';
 import MovieDetails from './../components/movie-details';
+import LoadIndicator from './../components/load-indicator';
 import scrollToTop from './../utils/scroll-to-top';
 
 class MovieSearch extends React.Component {
@@ -13,11 +14,13 @@ class MovieSearch extends React.Component {
       searchQuery: '',
       searchResults: {},
       movieData: {},
+      isLoading: false,
     };
   }
 
   onItemSelected = (movieId) => {
     const { movieDetailRequest } = this.props;
+    this.setState({ isLoading: true });
     movieDetailRequest(movieId)
       .then(this.setMovieData);
   }
@@ -26,6 +29,7 @@ class MovieSearch extends React.Component {
     const { movieSearchRequest } = this.props;
     this.setState({
       searchQuery,
+      isLoading: true,
     });
     movieSearchRequest(searchQuery)
       .then(this.setSearchResults);
@@ -34,6 +38,7 @@ class MovieSearch extends React.Component {
   onRequestPage = (newPage) => {
     const { movieSearchRequest } = this.props;
     const { searchQuery } = this.state;
+    this.setState({ isLoading: true });
     movieSearchRequest(searchQuery, newPage)
       .then(this.setSearchResults);
   }
@@ -47,6 +52,7 @@ class MovieSearch extends React.Component {
   setSearchResults = (searchResults) => {
     this.setState({
       searchResults,
+      isLoading: false,
     });
     scrollToTop();
   }
@@ -54,11 +60,12 @@ class MovieSearch extends React.Component {
   setMovieData = (movieData) => {
     this.setState({
       movieData,
+      isLoading: false,
     });
   }
 
   render() {
-    const { searchResults, movieData } = this.state;
+    const { searchResults, movieData, isLoading } = this.state;
     const movieSearchClass = classNames({
       'movie-search--no-scroll': !!movieData.id,
     });
@@ -74,6 +81,9 @@ class MovieSearch extends React.Component {
         <MovieDetails
           movieData={movieData}
           onCloseDetails={this.onCloseDetails}
+        />
+        <LoadIndicator
+          isLoading={isLoading}
         />
       </div>
     );

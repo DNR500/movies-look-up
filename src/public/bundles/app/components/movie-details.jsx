@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 
 const modalStyle = {
-  overlay : {
-    backgroundColor   : 'rgba(0, 0, 0, 0.75)'
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
   },
-  content : {
+  content: {
     maxWidth: '800px',
     margin: 'auto',
     border: 'none',
@@ -14,10 +14,10 @@ const modalStyle = {
     overflow: 'auto',
     WebkitOverflowScrolling: 'touch',
     outline: 'none',
-    padding: '0'
+    padding: '0',
 
-  }
-}
+  },
+};
 
 const MovieDetails = ({ movieData, onCloseDetails }) => {
   const { poster_path, title, tagline, overview, status, vote_average,
@@ -27,7 +27,7 @@ const MovieDetails = ({ movieData, onCloseDetails }) => {
   return movieData.id ?
     (
       <ReactModal
-        isOpen={true}
+        isOpen
         contentLabel=""
         style={modalStyle}
       >
