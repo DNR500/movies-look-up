@@ -1,0 +1,60 @@
+.search-box {
+  text-align: center;
+  &__title {
+    margin: 0 auto;
+    color: $color-accent-blue-light;
+    text-shadow: 2px 1px 1px $color-accent-blue-3;
+  }
+  &__form {
+    &__text-input {
+      width: 300px;
+      line-height: 1.8em;
+      font-size: 1.3em;
+      padding: 0 0.7em;
+      height: 38px;
+      background-color: $color-accent-blue-dark;
+      border: 1px solid $color-accent-blue-3;
+      border-top-left-radius: 13px;
+      border-bottom-left-radius: 13px;
+      color: $color-lightest;
+      outline: none;
+      &:focus {
+        border-color: $color-lightest;
+      }
+    }
+    &__text-input::placeholder {
+      color: $color-accent-blue-2;
+    }
+    &__text-input ~ &__button:focus {
+      border-color: $color-lightest;
+    }
+    &__button {
+      line-height: 1.8em;
+      height: 38px;
+      background-color: $color-accent-blue-2;
+      border: 1px solid $color-accent-blue-3;
+      color: $color-accent-blue-light;
+      outline: none;
+      width: 43px;
+      padding-top: 6px;
+      border-top-right-radius: 13px;
+      border-bottom-right-radius: 13px;
+      outline: none;
+      &:link, &:visited {
+        background-color: $color-accent-blue-2;
+        border-color: $color-accent-blue-3;
+        color: $color-accent-blue-light;
+      }
+      &:focus, &:hover {
+        border-color: $color-lightest;
+        background-color: $color-lightest;
+        color: $color-darkest;
+      }
+      &:active {
+        background-color: $color-accent-blue-2;
+        border-color: $color-accent-blue-3;
+        color: $color-accent-blue-light;
+      }
+    }
+  }
+}

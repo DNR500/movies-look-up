@@ -2,3 +2,12 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "./variables";
+@import "./generic";
+
+@import "./app/containers/movie-search.scss";
+
+@import "./app/components/search-box";
+@import "./app/components/movie-pager-list";
+@import "./app/components/movie-pager-list-item";
+@import "./app/components/movie-pager";
+@import "./app/components/movie-details";

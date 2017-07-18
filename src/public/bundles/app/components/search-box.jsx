@@ -13,8 +13,10 @@ const SearchBox = ({ searchForMovie }) => {
     <div className="search-box">
       <h1 className="search-box__title">Moviedb Search</h1>
       <form className="search-box__form" onSubmit={onSearch}>
-        <input className="search-box__form__text-input" type="text" placeholder="your movie here" onInput={onInputChange} />
-        <button className="search-box__form__button" type="submit" >search</button>
+        <input className="search-box__form__text-input" type="text" placeholder="Enter your movie.." onInput={onInputChange} />
+        <button className="search-box__form__button" type="submit" >
+          <span className="glyphicon glyphicon-search" />
+        </button>
       </form>
     </div>
   );
